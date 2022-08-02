@@ -25,7 +25,8 @@ public class ItemFakeRepository {
             new Item("1","item1"," desc1", now, now),
             new Item("2","item2"," desc2", now, now),
             new Item("3","item3"," desc3", now, now),
-            new Item("4","item4"," desc4", now, now)
+            new Item("4","item4"," desc4", now, now),
+            new Item("5","item45"," desc", now, now)
     ));
 
     public List<Item> findAll(){
