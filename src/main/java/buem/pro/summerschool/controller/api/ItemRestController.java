@@ -11,9 +11,7 @@ import buem.pro.summerschool.model.Item;
 import buem.pro.summerschool.service.item.impls.ItemServiceImpl;
 import buem.pro.summerschool.service.item.interfaces.IItemService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -25,14 +23,30 @@ public class ItemRestController {
     @Autowired
     ItemServiceImpl service;
 
-
-    @RequestMapping("")
+    @GetMapping("")
     public List<Item> showAll(){
         return service.getAll();
     }
-    @RequestMapping("{id}")
-    public void del(@PathVariable String id){
+
+    @GetMapping("/{id}")
+    public Item showOne(@PathVariable String id){
+        return service.get(id);
     }
+
+    @DeleteMapping("/{id}")
+    public void del(@PathVariable String id){
+        service.delete(id);
+    }
+
+    @PostMapping()
+    public Item insertOne(@RequestBody Item item){
+        return service.create(item);
+    }
+    @PutMapping()
+    public Item updateOne(@RequestBody Item item){
+        return service.update(item);
+    }
+
 
 
 

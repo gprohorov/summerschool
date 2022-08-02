@@ -24,8 +24,7 @@ public class ItemServiceImpl implements IItemService {
     ItemFakeRepository repository;
 
     @Override
-    public Item create(Item item) {
-        return repository.save(item);
+    public Item create(Item item) { return repository.save(item);
     }
 
     @Override
@@ -34,17 +33,13 @@ public class ItemServiceImpl implements IItemService {
     }
 
     @Override
-    public Item get(String id) {
-        return repository.findById(id);
+    public Item get(String id) { return repository.findById(id);
     }
 
     @Override
-    public void delete(String id) {
-        repository.deleteById(id);
+    public void delete(String id) {  repository.deleteById(id);
     }
 
     @Override
-    public List<Item> getAll() {
-        return repository.findAll();
-    }
+    public List<Item> getAll() { return repository.findAll();  }
 }
