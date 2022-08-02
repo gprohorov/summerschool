@@ -1,4 +1,4 @@
-package buem.pro.summerschool.repository;
+package buem.pro.summerschool.repository.item;
 /*
   @author   george
   @project   summerschool

@@ -7,10 +7,15 @@ package buem.pro.summerschool.model;
   @since 22.07.22 - 10.50
 */
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Document
 public class Item {
+    @Id
     private String id;
     private String name;
     private String description;
