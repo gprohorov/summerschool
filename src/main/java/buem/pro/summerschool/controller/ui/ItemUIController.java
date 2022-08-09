@@ -11,6 +11,7 @@ import buem.pro.summerschool.model.Item;
 import buem.pro.summerschool.service.item.impls.ItemServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +27,8 @@ public class ItemUIController {
     ItemServiceImpl service;
 
     @GetMapping("")
-    public String showAll(){
+    public String showAll(Model model){
+        model.addAttribute("items",service.getAll());
 
         return "items";
     }
