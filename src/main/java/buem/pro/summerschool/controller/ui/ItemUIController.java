@@ -7,14 +7,13 @@ package buem.pro.summerschool.controller.ui;
   @since 09.08.22 - 11.02
 */
 
+import buem.pro.summerschool.form.ItemForm;
 import buem.pro.summerschool.model.Item;
 import buem.pro.summerschool.service.item.impls.ItemServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,8 +28,23 @@ public class ItemUIController {
     @GetMapping("")
     public String showAll(Model model){
         model.addAttribute("items",service.getAll());
-
         return "items";
     }
+
+
+    @GetMapping("/del/{id}")
+    public String deleteById(@PathVariable("id") String id) {
+        service.delete(id);
+        return  "redirect:/ui/v1/items/";
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String addItem(Model model){
+        ItemForm itemForm = new ItemForm();
+        model.addAttribute("form", itemForm);
+        return "addItem";
+    }
+
+
 
 }

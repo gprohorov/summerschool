@@ -35,10 +35,9 @@ public class ItemServiceImpl implements IItemService {
     @Autowired
     ItemMongoRepository repository;
 
- //   @PostConstruct
+   @PostConstruct
     void init(){
-   //     repository.saveAll(items);
-
+     repository.saveAll(items);
     }
 
     @Override
