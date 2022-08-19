@@ -67,4 +67,8 @@ public class ItemServiceImpl implements IItemService {
 
 
         return repository.findAll();  }
+
+    public List<Item> saveAll(List<Item> items) {
+       return repository.saveAll(items);
+    }
 }

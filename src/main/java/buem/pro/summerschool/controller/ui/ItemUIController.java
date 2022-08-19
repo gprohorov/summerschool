@@ -45,6 +45,28 @@ public class ItemUIController {
         return "addItem";
     }
 
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String addItem(@ModelAttribute("form") ItemForm form){
+         Item item = new Item();
+         item.setName(form.getName());
+         item.setDescription(form.getDescription());
+         service.create(item);
+        return "redirect:/ui/v1/items/";
+    }
+
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String updateItem(Model model, @PathVariable("id") String id){
+        Item itemToUpdate = service.get(id);
+        ItemForm itemForm = new ItemForm();
+        itemForm.setId(itemToUpdate.getId());
+        itemForm.setName(itemToUpdate.getName());
+        itemForm.setDescription(itemToUpdate.getDescription());
+        itemForm.setUpdatedAt(itemToUpdate.getUpdatedAt());
+        itemForm.setCreatedAt(itemToUpdate.getCreatedAt());
+        model.addAttribute("form", itemForm);
+        return "updateItem";
+    }
+
 
 
 }
