@@ -23,7 +23,7 @@
              updated :<@spring.formInput "form.updatedAt" "" "date" />
             <br>
 
-            <input type="submit" value="Create">
+            <input type="submit" value="Save">
 
         </form>
 

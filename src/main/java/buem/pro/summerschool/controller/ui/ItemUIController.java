@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -65,6 +66,21 @@ public class ItemUIController {
         itemForm.setCreatedAt(itemToUpdate.getCreatedAt());
         model.addAttribute("form", itemForm);
         return "updateItem";
+    }
+
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
+    public String updateItem( @ModelAttribute("form") ItemForm form){
+        System.out.println(form);
+        Item itemtoUpdate = new Item();
+        itemtoUpdate.setId(form.getId());
+        itemtoUpdate.setName(form.getName());
+        itemtoUpdate.setDescription(form.getDescription());
+        itemtoUpdate.setCreatedAt(LocalDateTime.now());
+        itemtoUpdate.setUpdatedAt(LocalDateTime.now());
+
+        service.update(itemtoUpdate);
+
+        return "redirect:/ui/v1/items/";
     }
 
 
