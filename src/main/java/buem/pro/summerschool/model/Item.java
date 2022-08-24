@@ -7,6 +7,8 @@ package buem.pro.summerschool.model;
   @since 22.07.22 - 10.50
 */
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,8 +16,10 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Document
+@ApiModel("Item")
 public class Item {
     @Id
+    @ApiModelProperty(value = "UUID is given by MongoDb", required = true, name = "id", dataType = "String", example = "2322a-e3233-409c-4568322156790643")
     private String id;
     private String name;
     private ItemType type;

@@ -22,6 +22,7 @@ import java.util.List;
 
 @RequestMapping("/ui/v1/items/")
 @Controller
+@CrossOrigin
 public class ItemUIController {
 
     @Autowired
