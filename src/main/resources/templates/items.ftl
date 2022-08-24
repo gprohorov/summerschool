@@ -21,6 +21,7 @@
             <th> ID </th>
             <th> Name</th>
             <th> Description</th>
+            <th> Type</th>
             <th> Created At</th>
             <th> Updated At</th>
             <th> DELETE</th>
@@ -32,6 +33,7 @@
                     <td>${item.id}</td>
                     <td>${item.name}</td>
                     <td>${item.description}</td>
+                    <td>${item.type}</td>
                     <td>${item.createdAt}</td>
                     <td>${item.updatedAt?if_exists}</td>
                     <td><a href="/ui/v1/items/del/${item.id}"><button type="button" class="btn btn-danger">Del</button></a></td>

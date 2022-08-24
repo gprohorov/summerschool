@@ -14,6 +14,8 @@
         <form name="item" action="" method="POST">
             name:<@spring.formInput "form.name" "" "text" />
             <br>
+            type:<@spring.formSingleSelect "form.type", types "" />
+            <br>
             description:<@spring.formInput "form.description" "" "text" />
             <br>
             <input type="submit" value="Create">

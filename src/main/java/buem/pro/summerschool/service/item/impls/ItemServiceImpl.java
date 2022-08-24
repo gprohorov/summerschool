@@ -8,6 +8,7 @@ package buem.pro.summerschool.service.item.impls;
 */
 
 import buem.pro.summerschool.model.Item;
+import buem.pro.summerschool.model.ItemType;
 import buem.pro.summerschool.repository.item.ItemFakeRepository;
 import buem.pro.summerschool.repository.item.ItemMongoRepository;
 import buem.pro.summerschool.service.item.interfaces.IItemService;
@@ -26,10 +27,10 @@ public class ItemServiceImpl implements IItemService {
     private LocalDateTime now = LocalDateTime.now();
     private List<Item> items = new ArrayList<>(
             Arrays.asList(
-                    new Item("1","item1"," desc1", now, now),
-                    new Item("2","item2"," desc2", now, now),
-                    new Item("3","item3"," desc3", now, now),
-                    new Item("4","item4"," desc4", now, now)
+                    new Item("1","item1", ItemType.LOW," desc1", now, now),
+                    new Item("2","item2",ItemType.HIGH," desc2", now, now),
+                    new Item("3","item3",ItemType.MIDDLE," desc3", now, now),
+                    new Item("4","item4",ItemType.LOW," desc4", now, now)
             ));
 
     @Autowired

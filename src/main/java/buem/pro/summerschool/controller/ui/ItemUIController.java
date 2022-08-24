@@ -9,6 +9,7 @@ package buem.pro.summerschool.controller.ui;
 
 import buem.pro.summerschool.form.ItemForm;
 import buem.pro.summerschool.model.Item;
+import buem.pro.summerschool.model.ItemType;
 import buem.pro.summerschool.service.item.impls.ItemServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +27,7 @@ public class ItemUIController {
     @Autowired
     ItemServiceImpl service;
 
+
     @GetMapping("")
     public String showAll(Model model){
         model.addAttribute("items",service.getAll());
@@ -42,7 +44,9 @@ public class ItemUIController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addItem(Model model){
         ItemForm itemForm = new ItemForm();
+        var types = ItemType.values();
         model.addAttribute("form", itemForm);
+        model.addAttribute("types", types);
         return "addItem";
     }
 
@@ -50,6 +54,7 @@ public class ItemUIController {
     public String addItem(@ModelAttribute("form") ItemForm form){
          Item item = new Item();
          item.setName(form.getName());
+         item.setType(form.getType());
          item.setDescription(form.getDescription());
          service.create(item);
         return "redirect:/ui/v1/items/";

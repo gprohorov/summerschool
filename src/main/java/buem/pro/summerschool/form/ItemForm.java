@@ -7,11 +7,14 @@ package buem.pro.summerschool.form;
   @since 16.08.22 - 12.07
 */
 
+import buem.pro.summerschool.model.ItemType;
+
 import java.time.LocalDateTime;
 
 public class ItemForm {
     private String id;
     private String name;
+    private ItemType type;
     private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -22,6 +25,21 @@ public class ItemForm {
     public ItemForm(String name, String description) {
         this.name = name;
         this.description = description;
+    }
+
+    public ItemForm(String name, ItemType type, String description) {
+        this.name = name;
+        this.type = type;
+        this.description = description;
+    }
+
+    public ItemForm(String id, String name, ItemType type, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.description = description;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public ItemForm(String id, String name, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
@@ -72,11 +90,20 @@ public class ItemForm {
         this.updatedAt = updatedAt;
     }
 
+    public ItemType getType() {
+        return type;
+    }
+
+    public void setType(ItemType type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         return "ItemForm{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
+                ", type=" + type +
                 ", description='" + description + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +

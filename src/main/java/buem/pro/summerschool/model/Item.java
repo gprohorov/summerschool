@@ -18,6 +18,7 @@ public class Item {
     @Id
     private String id;
     private String name;
+    private ItemType type;
     private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -28,6 +29,29 @@ public class Item {
     public Item(String name, String description) {
         this.name = name;
         this.description = description;
+    }
+
+    public Item(String id, String name, ItemType type, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.description = description;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
+    public Item(String name, ItemType type, String description) {
+        this.name = name;
+        this.type = type;
+        this.description = description;
+    }
+
+    public ItemType getType() {
+        return type;
+    }
+
+    public void setType(ItemType type) {
+        this.type = type;
     }
 
     public Item(String id, String name, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
